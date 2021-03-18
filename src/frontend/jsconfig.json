@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "constants/*": ["src/constants/*"],
+      "hooks/*": ["src/hooks/*"],
+      "providers/*": ["src/providers/*"],
+      "utils/*": ["src/utils/*"],
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-curly-newline": 0,
+    "object-curly-newline": 0,
+    "semi": ["error", "never"],
+    "react/prop-types": 0,
+    "default-case": 0,
+    "no-plusplus": 0,
+    "import/no-unresolved": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "import/prefer-default-export": 0,
+    "import/extensions": 0,
+    "jsx-a11y/alt-text": 0
+  }
+}

@@ -1,0 +1,16 @@
+version: "3"
+services:
+  valheim-server:
+    image: fakundo/valheim-server:latest
+    environment:
+      DASHBOARD_PASSWORD: qwe123
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000/tcp"
+      - "2456:2456/udp"
+      - "2457:2457/udp"
+      - "2458:2458/udp"
+    volumes:
+      - ./tmp:/root/valheim
