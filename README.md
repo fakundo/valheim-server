@@ -21,5 +21,5 @@ services:
     environment:
       - DASHBOARD_PASSWORD=secret
     volumes:
-    - ./valheim:/root/valheim
+      - ./valheim:/root/valheim
 ```
