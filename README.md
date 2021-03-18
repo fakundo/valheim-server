@@ -1,10 +1,10 @@
-### Valheim Server
+## Valheim Dedicated Server
 
 An easy-to-install Valheim dedicated server Docker container with web interface.
 
 ![Screenshot](/screenshot.png "Screenshot")
 
-## Installation
+### Installation
 
 Create a file `docker-compose.yml` with the content below in some directory and run `docker-compose up -d` in that directory.
 
