@@ -10,6 +10,3 @@ cd ${BACKEND_DIR}
 # Build frontend assets
 cd ${FRONTEND_DIR}
 ./script.build.sh || exit 1
-# Build docker image
-cd ${BASE_DIR}
-docker-compose build || exit 1
