@@ -10,8 +10,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
-      - name: Build assets
+      - name: Setup Go
         uses: actions/setup-go@v2
+
+      - name: Build assets
         run: |
           ./docker-build.sh
 
