@@ -1,9 +1,24 @@
-name: Publish Docker image
+name: Release and publish to Docker
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
 jobs:
-  push_to_registry:
+  release:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }} RELEASE
+          draft: false
+          prerelease: false
+  publish:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +29,7 @@ jobs:
       - name: Build assets
         run: |
           ./docker-build.sh
-      - name: Push to Docker Hub
+      - name: Push to Docker hub
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
