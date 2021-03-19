@@ -4,35 +4,48 @@ on:
     tags:
       - 'v*'
 jobs:
-  release:
-    name: Create release
+  release_and_publish:
+    name: Create release and publish to Docker hub
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+
+      - name: Build assets
+        run: ./docker-build.sh
+
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }} RELEASE
           draft: false
           prerelease: false
-  publish:
-    name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Setup Go
-        uses: actions/setup-go@v2
-      - name: Build assets
-        run: |
-          ./docker-build.sh
-      - name: Push to Docker hub
-        uses: docker/build-push-action@v1
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: fakundo/valheim-server
-          tag_with_ref: true
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: fakundo/valheim-server:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
