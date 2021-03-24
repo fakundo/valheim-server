@@ -1,6 +1,6 @@
 ## Valheim Dedicated Server
 
-An easy-to-install Valheim dedicated server Docker container with web interface.
+An easy-to-install Valheim dedicated server with a Web interface exposed in the Docker image.
 
 ![Screenshot](/screenshot.png "Screenshot")
 
