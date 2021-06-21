@@ -2,6 +2,15 @@
 
 An easy-to-install Valheim dedicated server with a Web interface exposed in the Docker image.
 
+#### Features
+
+- game process output
+- performance monitor
+- worlds management (upload, download, delete)
+- users management (admins, banned, permitted)
+
+###
+
 ![Screenshot](/screenshot.png "Screenshot")
 
 ### Installation
@@ -23,3 +32,7 @@ services:
     volumes:
       - ./valheim:/root/valheim
 ```
+
+### License
+
+MIT

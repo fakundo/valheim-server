@@ -7,6 +7,7 @@ import ErrorSnackbar from 'components/ErrorSnackbar'
 import AuthDialog from 'components/AuthDialog'
 import Container from 'components/Container'
 import Header from 'components/Header'
+import Footer from 'components/Footer'
 import StatusCard from 'components/StatusCard'
 import OutputCard from 'components/OutputCard'
 import PerfCard from 'components/PerfCard'
@@ -53,6 +54,9 @@ export default () => (
               <PermittedListCard />
             </Grid>
           </Grid>
+        </Box>
+        <Box mt={4} mb={4}>
+          <Footer />
         </Box>
       </Container>
     </ConnectionProvider>
