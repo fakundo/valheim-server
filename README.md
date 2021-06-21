@@ -2,7 +2,7 @@
 
 An easy-to-install Valheim dedicated server with a Web interface exposed in the Docker image.
 
-#### Features
+### Features
 
 - game process output
 - performance monitor
