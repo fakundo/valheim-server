@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	worldsPath = filepath.Join(env.ValheimSavePath, "worlds")
+	worldsPath = filepath.Join(env.ValheimSavePath, "worlds_local")
 	worldsMtx  sync.Mutex
 )
 
